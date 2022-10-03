@@ -31,7 +31,7 @@ const rscaleX = canvas.width / rect.width;
 const rscaleY = canvas.height / rect.height;
 
 //os passos dados na criacao de um triangulo
-const triStep = 0.01;
+const triStep = 0.005;
 
 //a posicao do rato
 var mousePosX = 0;
@@ -154,7 +154,7 @@ function updatePoint(){
 
 
     if(points[nextPoint][0] > xLimit || points[nextPoint][0] < -xLimit || points[nextPoint][1] > yLimit || points[nextPoint][1] < -yLimit
-        || insideWhiteHole([nextPoint][0], [nextPoint][1])){
+        || insideWhiteHole(points[nextPoint][0], points[nextPoint][1])){
 
         ccreatePoint();
 
@@ -292,8 +292,8 @@ function insideWhiteHole(xx, yy){
 
 
 function distTwoPoints(x1, y1, x2, y2){
-
-    return Math.sqrt( Math.pow(x2 - x1) + Math.pow(y2 - y1) );
+    
+    return Math.sqrt( Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) );
 
 }
 
